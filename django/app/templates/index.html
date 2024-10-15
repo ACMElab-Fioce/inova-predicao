@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% block content %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoramento de Dengue no Brasil</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212; /* Fundo escuro */
+            color: #f4f4f4; /* Texto claro */
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background: linear-gradient(90deg, #007bff, #00c6ff); /* Gradiente de azul */
+            color: white;
+            padding: 30px;
+            border-bottom: 2px solid #0056b3;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em; /* Título maior */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra no título */
+        }
+        .content {
+            margin: 50px auto;
+            padding: 30px;
+            max-width: 700px; /* Largura máxima maior */
+            background-color: rgba(255, 255, 255, 0.9); /* Fundo branco translúcido */
+            border-radius: 15px; /* Bordas arredondadas */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
+            transition: transform 0.3s; /* Transição suave */
+        }
+        .content:hover {
+            transform: scale(1.02); /* Efeito de zoom ao passar o mouse */
+        }
+        footer {
+            background-color: #007bff; /* Azul sólido */
+            color: white;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            margin-top: 20px;
+            border-top: 2px solid #0056b3; /* Borda superior */
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 25px; /* Botão maior */
+            background-color: #28a745; /* Verde */
+            color: white;
+            border-radius: 8px; /* Bordas do botão arredondadas */
+            text-decoration: none;
+            font-size: 18px; /* Tamanho da fonte do botão */
+            margin: 15px;
+            transition: background-color 0.3s; /* Transição suave */
+        }
+        .btn:hover {
+            background-color: #218838; /* Verde escuro ao passar o mouse */
+        }
+        /* Estilo adicional para a responsividade */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em; /* Título menor em telas menores */
+            }
+            .btn {
+                font-size: 16px; /* Tamanho da fonte do botão menor */
+                padding: 10px 20px; /* Botão menor */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Projeto INOVA Fiocruz CE</h1>
+        <p>Prova conceitual de um sistema incremental de vigilância sindrômica e de alerta precoce de surtos baseado em abordagens computacionais.</p>
+    </header>
+
+    <div class="content">
+        <a href="https://brasildatahub.fiocruz.br" class="btn" target="_blank">Exportar base de dados</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Projeto Inova Predição de surtos - Fiocruz CE. Todos os direitos reservados.</p>
+    </footer>
+    {% endblock %}
+</body>
+</html>
