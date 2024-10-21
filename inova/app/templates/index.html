@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% block content %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoramento de Dengue no Brasil</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background: linear-gradient(90deg, #007bff, #00c6ff);
+            color: white;
+            padding: 30px;
+            border-bottom: 2px solid #0056b3;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .content {
+            margin: 50px auto;
+            padding: 30px;
+            max-width: 800px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        .content:hover {
+            transform: scale(1.02);
+        }
+        .graph-container {
+            margin: 30px 0;
+        }
+        footer {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            margin-top: 20px;
+            border-top: 2px solid #0056b3;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 15px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #218838;
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            .btn {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Projeto INOVA Fiocruz CE</h1>
+        <p>Prova conceitual de um sistema incremental de vigilância sindrômica e de alerta precoce de surtos baseado em abordagens computacionais.</p>
+    </header>
+
+    <div>
+        <a href="https://brasildatahub.fiocruz.br" class="btn" target="_blank">Exportar base de dados</a>
+        <!-- Seção para os gráficos -->
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            {% if graph_data_dengue %}
+                <div style="flex: 1; margin-right: 10px;">
+                    <h2>Quantitativo - Dengue</h2>
+                    <img src="data:image/png;base64,{{ graph_data_dengue }}" alt="Gráfico de Barras - Classificação" style="max-width: 100%; height: auto;">
+                </div>
+            {% endif %}
+            {% if graph_data_denguealarme %}
+                <div style="flex: 1; margin-right: 10px;">
+                    <h2>Quantitativo - Dengue com sinais de alarme</h2>
+                    <img src="data:image/png;base64,{{ graph_data_denguealarme }}" alt="Gráfico de Barras - Classificação" style="max-width: 100%; height: auto;">
+                </div>
+            {% endif %}
+            {% if graph_data_denguegrave %}
+                <div style="flex: 1;">
+                    <h2>Quantitativo - Dengue Grave</h2>
+                    <img src="data:image/png;base64,{{ graph_data_denguegrave }}" alt="Gráfico de Barras - Data de Notificação" style="max-width: 100%; height: auto;">
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Projeto Inova Predição de surtos - Fiocruz CE. Todos os direitos reservados.</p>
+    </footer>
+    {% endblock %}
+</body>
+</html>
