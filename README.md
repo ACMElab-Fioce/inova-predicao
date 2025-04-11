@@ -1,1 +1,1 @@
-# inova-predicao-django
+# inova-predicao
